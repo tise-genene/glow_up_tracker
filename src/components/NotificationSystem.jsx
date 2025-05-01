@@ -1,10 +1,17 @@
-import React, { useEffect, useCallback } from 'react';
-import { NotificationContainer } from 'react-notifications-component';
-import 'react-notifications-component/dist/theme.css';
+import React, { useCallback } from 'react';
 import { useLocalStorage } from '../utils/useLocalStorage';
 import { showReminderNotification } from '../utils/notifications';
 
-const NotificationSystem = () => {
+// Create a custom notification container component
+const CustomNotificationContainer = () => {
+  return (
+    <div className="react-notifications-container">
+      <div className="notifications top-right" />
+    </div>
+  );
+};
+
+function NotificationSystem() {
   const [settings] = useLocalStorage('settings', {
     notifications: true,
     weeklyReminder: 'Monday',
@@ -21,7 +28,7 @@ const NotificationSystem = () => {
   }, [settings.notifications, settings.weeklyReminder]);
 
   // Check for reminder when component mounts
-  useEffect(() => {
+  React.useEffect(() => {
     checkReminder();
     // Check every hour
     const interval = setInterval(checkReminder, 60 * 60 * 1000);
@@ -29,8 +36,10 @@ const NotificationSystem = () => {
   }, [checkReminder]);
 
   return (
-    <NotificationContainer />
+    <div className="fixed top-0 right-0 z-50 w-full">
+      <CustomNotificationContainer />
+    </div>
   );
-};
+}
 
 export default NotificationSystem;
