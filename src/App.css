@@ -24,6 +24,156 @@
   color: white;
 }
 
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media screen and (max-width: 768px) {
+  .grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .max-w-7xl {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  .h-16 {
+    height: auto;
+    padding: 1rem;
+  }
+
+  .text-2xl {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .space-x-4 {
+    gap: 0.5rem;
+  }
+
+  .text-xl {
+    font-size: 1.25rem;
+  }
+
+  .text-2xl {
+    font-size: 1.25rem;
+  }
+}
+
+/* Custom Animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Dark mode customizations */
+.dark .bg-gray-100 {
+  background-color: #1f2937;
+}
+
+.dark .text-gray-900 {
+  color: #f3f4f6;
+}
+
+.dark .bg-white {
+  background-color: #1f2937;
+}
+
+/* Card hover effects */
+.card {
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Progress bar animations */
+.progress-bar {
+  transition: width 0.5s ease-in-out;
+}
+
+/* Button hover effects */
+.btn {
+  transition: all 0.2s ease-in-out;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Email template preview styles */
+.email-preview {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom notifications */
+.notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 15px 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: slideIn 0.3s ease-out;
+}
+
+.notification.success {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.notification.error {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.notification.info {
+  background-color: #eef2ff;
+  color: #1e40af;
+}
+
 .App-link {
   color: #61dafb;
 }
