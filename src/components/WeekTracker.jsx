@@ -41,8 +41,12 @@ const WeekTracker = () => {
   };
 
   return (
-    <div className="p-6 bg-white rounded-lg shadow-md dark:bg-gray-800">
-      <h2 className="text-2xl font-bold mb-6">This Week's Glow-Up</h2>
+    <div className="p-8 bg-white rounded-xl shadow-lg border border-gray-100">
+      <h2
+        className="text-sm font-medium text-gray-600"
+      >
+        This Week's Glow-Up
+      </h2>
       
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
         {categories.map((category) => (
@@ -57,7 +61,11 @@ const WeekTracker = () => {
             >
               {category.emoji}
             </button>
-            <p className="mt-2 text-sm">{category.label}</p>
+            <p
+              className="text-center p-4 rounded-xl hover:bg-gray-50 transition-colors duration-200 text-sm"
+            >
+              {category.label}
+            </p>
           </div>
         ))}
       </div>

@@ -2,12 +2,27 @@ import { store } from 'react-notifications-component';
 
 // Initialize the store if it doesn't exist
 if (!store) {
-  console.error('Notification store not initialized');
-  store = {
+  console.log('Initializing notification store...');
+  window.notificationStore = {
+    notifications: [],
     addNotification: (notification) => {
-      console.error('Notification store not properly initialized');
+      const id = Date.now();
+      const newNotification = {
+        ...notification,
+        id,
+        createdAt: new Date(),
+      };
+      window.notificationStore.notifications.push(newNotification);
+      return id;
+    },
+    removeNotification: (id) => {
+      window.notificationStore.notifications = window.notificationStore.notifications.filter(n => n.id !== id);
+    },
+    clearNotifications: () => {
+      window.notificationStore.notifications = [];
     }
   };
+  store = window.notificationStore;
 }
 
 // Add CSS classes for animations

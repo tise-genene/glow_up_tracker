@@ -33,19 +33,19 @@ const Dashboard = () => {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="p-6 bg-white rounded-lg shadow-md dark:bg-gray-800"
+      className="p-8 bg-white rounded-xl shadow-lg border border-gray-100"
     >
-      <h2 className="text-2xl font-bold mb-6">Your Weekly Progress</h2>
+      <h2 className="text-2xl font-bold text-gray-900 mb-6">Your Weekly Progress</h2>
 
       {/* Progress Bar */}
       <div className="mb-8">
         <div className="mb-2 text-sm font-medium">Weekly Progress</div>
-        <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+        <div className="w-full bg-gray-100 rounded-full h-2.5">
           <motion.div 
             initial={{ width: '0%' }}
             animate={{ width: `${progressPercentage}%` }}
             transition={{ duration: 1 }}
-            className="bg-blue-600 h-2.5 rounded-full"
+            className="bg-blue-500 h-2.5 rounded-full"
           />
         </div>
         <div className="text-sm text-gray-600 dark:text-gray-400">

@@ -48,9 +48,9 @@ const ProgressChart = () => {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="p-6 bg-white rounded-lg shadow-md dark:bg-gray-800"
+      className="p-8 bg-white rounded-xl shadow-lg border border-gray-100"
     >
-      <h2 className="text-xl font-bold mb-6">Progress Over Time</h2>
+      <h2 className="text-2xl font-bold text-gray-900 mb-6">Progress Over Time</h2>
       <div className="space-y-4">
         {lastFiveWeeks.map((week, index) => (
           <motion.div
@@ -58,7 +58,7 @@ const ProgressChart = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             transition={{ delay: index * 0.1 }}
-            className="bg-gray-50 p-4 rounded-lg dark:bg-gray-700"
+            className="bg-green-500 h-2.5 rounded-full"
           >
             <div className="flex justify-between items-center mb-2">
               <span className="text-sm text-gray-600 dark:text-gray-400">
@@ -68,7 +68,7 @@ const ProgressChart = () => {
                 {calculateProgress(week).toFixed(1)}%
               </span>
             </div>
-            <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+            <div className="bg-gray-100 rounded-full h-2.5">
               <motion.div 
                 initial={{ width: '0%' }}
                 animate={{ width: `${calculateProgress(week)}%` }}

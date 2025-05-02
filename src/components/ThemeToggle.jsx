@@ -1,18 +1,40 @@
+import { useEffect } from 'react';
 import { useLocalStorage } from '../utils/useLocalStorage';
 
 const ThemeToggle = () => {
   const [theme, setTheme] = useLocalStorage('theme', 'light');
 
+  useEffect(() => {
+    // Apply theme class to document
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+
+    // Update body background color
+    document.body.style.backgroundColor = theme === 'dark' ? '#1f2937' : '#f3f4f6';
+  }, [theme]);
+
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
-    document.documentElement.classList.toggle('dark');
+    // Immediately apply theme to document
+    if (newTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
   };
 
   return (
     <button
       onClick={toggleTheme}
-      className="ml-4 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+      className="ml-4 p-2 rounded-lg transition-colors duration-200"
+      style={{
+        backgroundColor: theme === 'light' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)',
+        color: theme === 'light' ? '#1f2937' : '#f3f4f6',
+      }}
     >
       {theme === 'light' ? (
         <svg
